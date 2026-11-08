@@ -31,17 +31,8 @@ export default function Services() {
               </div>
             </Reveal>
           ))}
-
-          <Reveal as="p" className="note">Decisions about detoxification, medication, psychiatric treatment or emergency intervention are made only by appropriately qualified healthcare professionals after assessment. Treatment is never one-size-fits-all.</Reveal>
         </div>
       </section>
-
-      <CtaBand
-        title="Not sure which service you need?"
-        text="Call us for a confidential first conversation. We will help you understand the right next step."
-        buttonLabel="Book an Appointment"
-        to="/appointment"
-      />
     </>
   );
 }

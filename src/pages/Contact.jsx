@@ -67,7 +67,6 @@ export default function Contact() {
               <li><span>&#9906;</span><div><strong>Address</strong>Street No. 6, Tarlai Kalan, Islamabad, Pakistan</div></li>
               <li><span>&#9741;</span><div><strong>Website</strong><a href="https://www.thenlrc.com">www.thenlrc.com</a></div></li>
             </ul>
-            <p className="emergency"><strong>Emergency?</strong> In a medical or mental health emergency, go to the nearest hospital emergency department immediately.</p>
           </Reveal>
 
           <Reveal as="form" className="form" id="contactForm" noValidate onSubmit={handleSubmit}>

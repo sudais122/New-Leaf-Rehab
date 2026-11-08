@@ -88,11 +88,11 @@ export default function Internship() {
         </div>
       </section>
 
-      <CtaBand
+      {/* <CtaBand
         title="University or student enquiries"
         text="Write to us at newleafrehabcenter@gmail.com or call 0345-1939246 to discuss a placement or partnership."
         buttonLabel="Contact Us"
-      />
+      /> */}
     </>
   );
 }

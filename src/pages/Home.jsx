@@ -49,15 +49,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="call-strip">
-        <div className="container">
-          <Reveal className="call-box">
-            <div><small>Call us for any query</small><strong><a href={'tel:' + PHONE_TEL}>{PHONE}</a></strong></div>
-            <Button to="/appointment">Book an Appointment</Button>
-          </Reveal>
-        </div>
-      </section>
-
       {/* 2. WHO WE ARE */}
       <section className="section">
         <div className="container split">

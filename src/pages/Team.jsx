@@ -68,14 +68,10 @@ export default function Team() {
                   <h3>{m.name}</h3>
                   <p className="role">{m.role}</p>
                   <p className="cred">{m.cred}</p>
-                  <button className="link-btn" onClick={() => setSelected(m)}>View profile</button>
                 </div>
               </Reveal>
             ))}
           </div>
-          <Reveal as="p" className="note" style={{ marginTop: '36px', textAlign: 'center' }}>
-            Clinical assessment, diagnosis, prescribing and treatment are undertaken only by appropriately qualified and authorized professionals.
-          </Reveal>
         </div>
       </section>
 
