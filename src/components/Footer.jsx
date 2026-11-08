@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { PHONE, PHONE_TEL, EMAIL } from "../data/site";
-import logo from "/Users/eapple/Downloads/New-Leaf-Rehab/src/assets/images/logo.jpg";
+import { logo } from "../assets/images";
 
 export default function Footer() {
   return (
