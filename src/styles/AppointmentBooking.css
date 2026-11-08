@@ -323,7 +323,7 @@
 /* Booking Summary */
 
 .booking-summary {
-  margin-top: 30px;
+  margin: 30px 30px;
   padding: 22px;
   background: var(--booking-background);
   border: 1px solid var(--booking-border);
