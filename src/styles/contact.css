@@ -1,0 +1,16 @@
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+.contact-list{margin:26px 0}
+.contact-list li{display:flex;gap:16px;margin-bottom:20px}
+.contact-list li>span{flex:0 0 48px;height:48px;border-radius:12px;background:var(--tint);color:var(--green);display:grid;place-items:center;font-size:1.3rem;border:1px solid var(--line)}
+.contact-list strong{display:block;color:var(--forest);font-size:.9rem}
+.contact-list a:hover{color:var(--lime-dark)}
+.emergency{font-size:.88rem;background:#fff7e8;padding:14px 18px;border-radius:12px;border-left:4px solid var(--gold)}
+.form{background:#fff;border-radius:20px;padding:36px;box-shadow:var(--shadow-lg);border-top:5px solid var(--lime)}
+.form h3{margin-bottom:20px;font-size:1.3rem}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.83rem;font-weight:600;color:var(--forest);margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font:inherit;color:var(--text);background:#fbfdf9;transition:.2s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--lime);box-shadow:0 0 0 4px rgba(141,184,62,.2)}
+.field.err input{border-color:#c0392b}
+.form-msg{margin:12px 0 0;font-size:.85rem;color:#c0392b;min-height:1.2em}

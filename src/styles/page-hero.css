@@ -1,0 +1,7 @@
+/* Page banner (inner pages) */
+.page-hero{background:linear-gradient(135deg,rgba(23,64,58,.96),rgba(5,83,45,.93)),url('../assets/images/exterior.jpg') center/cover;color:#fff;padding:78px 0;text-align:center;position:relative;overflow:hidden}
+.page-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:var(--lime)}
+.page-hero h1{color:#fff;font-size:clamp(2rem,4.2vw,3.2rem);margin-bottom:12px}
+.crumbs{font-size:.9rem;color:#b8d2c4}
+.crumbs a{color:var(--lime)}
+.crumbs a:hover{text-decoration:underline}

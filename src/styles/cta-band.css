@@ -1,0 +1,4 @@
+/* CTA band */
+.cta-band{background:linear-gradient(135deg,var(--forest),var(--green));color:#fff;padding:60px 0;text-align:center;border-top:6px solid var(--lime)}
+.cta-band h2{color:#fff}
+.cta-band p{color:#c3d8cd;max-width:620px;margin:0 auto 24px}

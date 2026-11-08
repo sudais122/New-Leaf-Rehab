@@ -1,0 +1,22 @@
+/* ORDER MATTERS: these files are the original style.css split into contiguous ranges, imported in
+   the original source order so the cascade (e.g. .reveal vs. component transitions) is unchanged. */
+@import './variables.css';
+@import './global.css';
+@import './buttons.css';
+@import './header.css';
+@import './home.css';
+@import './reviews.css';
+@import './map.css';
+@import './page-hero.css';
+@import './about.css';
+@import './team.css';
+@import './gallery.css';
+@import './services.css';
+@import './internship.css';
+@import './contact.css';
+@import './cta-band.css';
+@import './footer.css';
+@import './modal.css';
+@import './floating.css';
+@import './reveal.css';
+@import './responsive.css';

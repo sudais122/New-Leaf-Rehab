@@ -1,0 +1,18 @@
+/* ===== New Leaf Rehab Center — brand tokens taken from the institutional profile PDF ===== */
+:root{
+  --forest:#17403A;
+  --green:#05532D;
+  --mid:#2F6B57;
+  --lime:#8DB83E;
+  --lime-dark:#6f9a2d;
+  --gold:#C9A35B;
+  --ink:#1d1d1b;
+  --text:#34403c;
+  --muted:#6b7772;
+  --tint:#F3F8EE;
+  --line:#e3ebe0;
+  --radius:16px;
+  --shadow:0 10px 30px rgba(23,64,58,.10);
+  --font-sans:'Inter','Calibri',Arial,sans-serif;
+  --shadow-lg:0 20px 50px rgba(23,64,58,.18);
+}

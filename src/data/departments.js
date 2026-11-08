@@ -1,0 +1,78 @@
+// Icons: &#10010; &#9998; &#9877; &#9834; &#8962; &#9728; &#9733; &#9881;
+const ICON = {
+  cross: "\u271A",
+  pencil: "\u270E",
+  medical: "\u2695",
+  note: "\u266A",
+  home: "\u2302",
+  sun: "\u2600",
+  star: "\u2605",
+  gear: "\u2699",
+};
+
+export const departments = [
+  {
+    id: "d1",
+    icon: ICON.cross,
+    title: "Substance Use & Addiction Rehabilitation",
+    homeText: "Recovery-focused treatment and relapse prevention.",
+    text: "Screening, assessment, counselling, psychoeducation, relapse prevention and continuing recovery support. Led by our CEO and director with the clinical team.",
+    related: { label: "Related treatments", to: "/services#addiction" },
+  },
+  {
+    id: "d2",
+    icon: ICON.pencil,
+    title: "Psychological Services & Counselling",
+    homeText: "Assessment, therapy and psychoeducation.",
+    text: "Clinical psychologists provide assessment, counselling, psychotherapy and CBT-informed care, including support for children and adolescents.",
+    related: { label: "Related treatments", to: "/services#psychological" },
+  },
+  {
+    id: "d3",
+    icon: ICON.medical,
+    title: "Psychiatric Care",
+    homeText: "Diagnosis and medication management.",
+    text: "Our consultant psychiatrist provides evaluation, diagnosis, treatment planning and medication management for psychiatric and co-occurring conditions.",
+    related: { label: "Related treatments", to: "/services#psychiatric" },
+  },
+  {
+    id: "d4",
+    icon: ICON.note,
+    title: "Medical Care & Monitoring",
+    homeText: "Physical health and withdrawal monitoring.",
+    text: "General medical assessment, vital-sign and withdrawal-symptom monitoring, and medication dispensing support under clinical direction.",
+    related: { label: "Related treatments", to: "/services#medical" },
+  },
+  {
+    id: "d5",
+    icon: ICON.home,
+    title: "Family Support",
+    homeText: "Education and guidance for families.",
+    text: "Education, counselling and involvement for families, with consent, to strengthen recovery and social reintegration.",
+    related: { label: "Related treatments", to: "/services#family" },
+  },
+  {
+    id: "d6",
+    icon: ICON.sun,
+    title: "Spiritual Care",
+    homeText: "Hope, inner peace and positive values.",
+    text: "Faith-based guidance and encouragement that promotes hope, inner peace and positive values, respecting each person's beliefs.",
+    related: { label: "Related treatments", to: "/services#spiritual" },
+  },
+  {
+    id: "d7",
+    icon: ICON.star,
+    title: "Internship & Training",
+    homeText: "Supervised clinical learning for psychology students.",
+    text: "Supervised clinical learning for students of BS Psychology, MS Psychology, MS Clinical Psychology and related disciplines.",
+    related: { label: "About the programme", to: "/internship" },
+  },
+  {
+    id: "d8",
+    icon: ICON.gear,
+    title: "University Collaboration & Research",
+    homeText: "Workshops, awareness and ethical research.",
+    text: "Guest lectures, workshops, awareness sessions and research collaboration subject to ethics approval and institutional permissions.",
+    related: { label: "Partnership areas", to: "/internship#collaboration" },
+  },
+];
