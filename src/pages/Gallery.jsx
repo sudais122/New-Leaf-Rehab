@@ -4,47 +4,11 @@ import PageHero from '../components/PageHero';
 import usePageMeta from '../hooks/usePageMeta';
 import { galleryItems } from '../data/gallery';
 
-import intern11 from '../assets/images/Interns11';
-import intern12 from 'src/assets/images/Interns12.jpeg';
-import intern13 from 'src/assets/images/Interns13.jpeg';
-import intern14 from 'src/assets/images/Interns14.jpeg';
-import intern15 from 'src/assets/images/Interns15.jpeg';
-
-const internshipImages = [
-  {
-    src: intern11,
-    alt: 'Internship training',
-    caption: 'Internship Training',
-  },
-  {
-    src: intern12,
-    alt: 'Clinical psychology learning',
-    caption: 'Clinical Psychology Learning',
-  },
-  {
-    src: intern13,
-    alt: 'Student learning activities',
-    caption: 'Student Learning Activities',
-  },
-  {
-    src: intern14,
-    alt: 'Professional training session',
-    caption: 'Professional Training',
-  },
-  {
-    src: intern15,
-    alt: 'Psychology internship programme',
-    caption: 'Psychology Internship Programme',
-  },
-];
-
 export default function Gallery() {
   usePageMeta(
     'Gallery | New Leaf Rehab Center Islamabad',
     'Photos of the reception, consultation rooms, residential facilities and internship activities at New Leaf Rehab Center Islamabad.'
   );
-
-  const allGalleryItems = [...galleryItems, ...internshipImages];
 
   const [lightbox, setLightbox] = useState({
     open: false,
@@ -94,7 +58,7 @@ export default function Gallery() {
           </SectionHead>
 
           <div className="gal">
-            {allGalleryItems.map((g, index) => (
+            {galleryItems.map((g, index) => (
               <figure
                 key={`${g.caption}-${index}`}
                 onClick={() =>

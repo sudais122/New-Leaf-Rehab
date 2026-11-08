@@ -18,6 +18,11 @@ import nayabAlam from "./nayab-alam.jpg";
 import muhammadHassan from "./muhammad-hassan.jpg";
 import muhammadDawood from "./muhammad-dawood.jpg";
 import riyasatUllah from "./riyasat-ullah.jpg";
+import intern11 from "./intern11.jpeg";
+import intern12 from "./intern12.jpeg";
+import intern13 from "./intern13.jpeg";
+import intern14 from "./intern14.jpeg";
+import intern15 from "./intern15.jpeg";
 
 export {
   logo,
@@ -38,4 +43,9 @@ export {
   muhammadHassan,
   muhammadDawood,
   riyasatUllah,
+  intern11,
+  intern12,
+  intern13,
+  intern14,
+  intern15,
 };
