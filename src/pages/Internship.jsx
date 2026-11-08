@@ -1,10 +1,9 @@
+
 import Reveal from '../components/Reveal';
 import Button from '../components/Button';
 import PageHero from '../components/PageHero';
 import TickList from '../components/TickList';
-import CtaBand from '../components/CtaBand';
 import usePageMeta from '../hooks/usePageMeta';
-import { consultation } from '../assets/images';
 
 const objectives = [
   'Understand substance use disorders and recovery-oriented care',
@@ -41,25 +40,49 @@ export default function Internship() {
 
   return (
     <>
-      <PageHero title="Clinical Psychology Internship" crumbs={[{ label: 'Home', to: '/' }, { label: 'Internship' }]} />
+      <PageHero
+        title="Clinical Psychology Internship"
+        crumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Internship' },
+        ]}
+      />
 
+      {/* INTRODUCTION AND LEARNING OBJECTIVES */}
       <section className="section">
         <div className="container split">
           <Reveal>
             <span className="eyebrow">Clinical Learning</span>
             <h2>Connecting classroom learning with responsible practice</h2>
-            <div className="rule"></div>
-            <p>We welcome enquiries from academic institutions seeking supervised clinical learning for students of BS Psychology, MS Psychology, MS Clinical Psychology and related disciplines.</p>
-            <h3 style={{ margin: '22px 0 8px' }}>Learning objectives</h3>
+            <div className="rule" />
+
+            <p>
+              We welcome enquiries from academic institutions seeking
+              supervised clinical learning for students of BS Psychology,
+              MS Psychology, MS Clinical Psychology and related disciplines.
+            </p>
+
+            <h3 style={{ margin: '22px 0 8px' }}>
+              Learning objectives
+            </h3>
+
             <TickList items={objectives} />
           </Reveal>
+
           <Reveal>
-            <div className="pic" style={{ marginBottom: '24px' }}><img src={consultation} alt="Consultation room" /></div>
+            {/* INTERNSHIP IMAGE */}
+            <div className="internship-image">
+              <img
+                src="src/assets/images/intern-15.jpeg"
+                alt="Clinical psychology students participating in supervised internship learning"
+              />
+            </div>
+
             <div className="collab">
               <h3>Possible supervised activities</h3>
               <ul>
-                {activities.map((a) => (
-                  <li key={a}>{a}</li>
+                {activities.map((activity) => (
+                  <li key={activity}>{activity}</li>
                 ))}
               </ul>
             </div>
@@ -67,32 +90,46 @@ export default function Internship() {
         </div>
       </section>
 
+      {/* PLACEMENT SAFEGUARDS */}
       <section className="section section-tint">
         <div className="container split">
           <Reveal>
             <span className="eyebrow">Placement Safeguards</span>
             <h2>Interns are learners, not substitute clinicians</h2>
-            <div className="rule"></div>
-            <p>Interns must not diagnose, prescribe, provide unsupervised therapy or access identifiable client records without authorization. Any observation or participation involving clients follows the centre's approval process, client consent requirements and supervisor direction. Confidentiality obligations continue after the placement ends.</p>
-            <div className="legal"><strong>Certification:</strong> An internship completion certificate may be issued to students who meet the approved attendance, conduct, learning and assessment requirements. Duration, schedule, capacity, fees (if any) and assessment criteria are confirmed in writing for each cohort.</div>
-            <Button to="/contact">Enquire About Internships</Button>
+            <div className="rule" />
+
+            <p>
+              Interns must not diagnose, prescribe, provide unsupervised
+              therapy or access identifiable client records without
+              authorization. Any observation or participation involving
+              clients follows the centre's approval process, client consent
+              requirements and supervisor direction. Confidentiality
+              obligations continue after the placement ends.
+            </p>
+
+            <div className="legal">
+              <strong>Certification:</strong> An internship completion
+              certificate may be issued to students who meet the approved
+              attendance, conduct, learning and assessment requirements.
+              Duration, schedule, capacity, fees (if any) and assessment
+              criteria are confirmed in writing for each cohort.
+            </div>
+
+            <Button to="/appointment">
+              Enquire About Internships
+            </Button>
           </Reveal>
+
           <Reveal as="aside" className="collab" id="collaboration">
             <h3>University collaboration</h3>
             <ul>
-              {collaboration.map((c) => (
-                <li key={c}>{c}</li>
+              {collaboration.map((item) => (
+                <li key={item}>{item}</li>
               ))}
             </ul>
           </Reveal>
         </div>
       </section>
-
-      {/* <CtaBand
-        title="University or student enquiries"
-        text="Write to us at newleafrehabcenter@gmail.com or call 0345-1939246 to discuss a placement or partnership."
-        buttonLabel="Contact Us"
-      /> */}
     </>
   );
 }

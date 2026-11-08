@@ -113,3 +113,293 @@
     font-size: .92rem;
     color: var(--muted)
 }
+
+/* CEO PROFILE SECTION */
+
+.ceo-section {
+  background: #F6F8F6;
+}
+
+.ceo-heading {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.ceo-heading h2 {
+  color: #15473C;
+  font-size: clamp(28px, 3vw, 40px);
+  margin: 12px 0;
+}
+
+.ceo-heading p {
+  color: #718078;
+  line-height: 1.8;
+}
+
+.ceo-heading .rule {
+  margin: 18px auto;
+}
+
+.ceo-profile {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 45px;
+  align-items: center;
+}
+
+.ceo-profile-card {
+  background: #15473C;
+  border-radius: 16px;
+  padding: 35px 28px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(21,71,60,.12);
+}
+
+.ceo-avatar {
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  border: 2px solid #8BB948;
+  background: rgba(139,185,72,.13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 22px;
+}
+
+.ceo-avatar span {
+  font-family: Georgia, serif;
+  color: #A8D16C;
+  font-size: 55px;
+}
+
+.ceo-profile-caption h3 {
+  color: #fff;
+  font-size: 25px;
+  margin-bottom: 7px;
+}
+
+.ceo-profile-caption > span {
+  display: block;
+  color: #A8D16C;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ceo-profile-caption small {
+  display: block;
+  color: #d3dfd8;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.ceo-education,
+.ceo-experience {
+  padding: 17px 10px;
+  margin-top: 18px;
+  border-top: 1px solid rgba(255,255,255,.16);
+}
+
+.ceo-education strong,
+.ceo-experience strong {
+  display: block;
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.ceo-education span,
+.ceo-experience span {
+  display: block;
+  color: #cbd9d1;
+  font-size: 12px;
+}
+
+.ceo-biography h2 {
+  color: #15473C;
+  font-size: 32px;
+  margin: 12px 0;
+}
+
+.ceo-biography .rule {
+  margin-bottom: 22px;
+}
+
+.ceo-biography p {
+  color: #68766e;
+  font-size: 14px;
+  line-height: 1.9;
+  margin-bottom: 15px;
+}
+
+.ceo-information-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 60px;
+}
+
+.ceo-info-card {
+  padding: 28px 24px;
+  background: #fff;
+  border: 1px solid #e6ece7;
+  border-radius: 13px;
+  box-shadow: 0 8px 25px rgba(21,71,60,.04);
+}
+
+.ceo-info-number {
+  display: block;
+  color: #8BB948;
+  font-family: Georgia, serif;
+  font-size: 34px;
+  margin-bottom: 18px;
+}
+
+.ceo-info-card h3 {
+  color: #15473C;
+  font-size: 19px;
+  margin-bottom: 15px;
+}
+
+.ceo-info-card p {
+  color: #718078;
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.ceo-info-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ceo-info-card li {
+  position: relative;
+  padding: 9px 0 9px 19px;
+  color: #59685f;
+  font-size: 12px;
+  line-height: 1.6;
+  border-bottom: 1px solid #edf1ed;
+}
+
+.ceo-info-card li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #8BB948;
+  font-weight: 700;
+}
+
+.ceo-principles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.ceo-principles span {
+  background: rgba(139,185,72,.15);
+  color: #15473C;
+  padding: 8px 11px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.ceo-affiliation {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 30px;
+  align-items: center;
+  background: #15473C;
+  border-radius: 15px;
+  padding: 35px;
+  margin-top: 25px;
+}
+
+.ceo-affiliation h3 {
+  color: #fff;
+  font-size: 22px;
+  margin: 12px 0;
+}
+
+.ceo-affiliation p {
+  color: #d2dfd8;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.ceo-registration-details {
+  display: grid;
+  gap: 12px;
+}
+
+.ceo-registration-details > div {
+  padding: 15px;
+  background: rgba(255,255,255,.08);
+  border-radius: 8px;
+}
+
+.ceo-registration-details small,
+.ceo-registration-details strong {
+  display: block;
+}
+
+.ceo-registration-details small {
+  color: #A8D16C;
+  font-size: 11px;
+  margin-bottom: 7px;
+}
+
+.ceo-registration-details strong {
+  color: white;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 950px) {
+  .ceo-profile {
+    grid-template-columns: 1fr;
+  }
+
+  .ceo-information-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ceo-affiliation {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .ceo-information-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ceo-profile-card {
+    padding: 28px 20px;
+  }
+
+  .ceo-affiliation {
+    padding: 25px 20px;
+  }
+}
+.ceo-avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 3px solid #8BB948;
+  overflow: hidden;
+  margin: 0 auto 22px;
+  background: #fff;
+}
+
+.ceo-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
