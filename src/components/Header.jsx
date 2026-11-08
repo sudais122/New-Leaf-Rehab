@@ -63,7 +63,7 @@ export default function Header() {
             <Link to="/departments" className={active(['/departments'])} onClick={closeMenu}>Our Departments</Link>
             <Link to="/internship" className={active(['/internship'])} onClick={closeMenu}>Internship</Link>
             <Link to="/contact" className={active(['/contact'])} onClick={closeMenu}>Contact Us</Link>
-            <Button to="/contact" className="nav-cta" onClick={closeMenu}>Book an Appointment</Button>
+            <Button to="/appointment" className="nav-cta" onClick={closeMenu}>Book an Appointment</Button>
           </nav>
           <button
             className={'menu-toggle' + (menuOpen ? ' open' : '')}

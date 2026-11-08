@@ -53,7 +53,8 @@ export default function Home() {
         <div className="container">
           <Reveal className="call-box">
             <div><small>Call us for any query</small><strong><a href={'tel:' + PHONE_TEL}>{PHONE}</a></strong></div>
-<Button to="/appointment">Book an Appointment</Button>          </Reveal>
+            <Button to="/appointment">Book an Appointment</Button>
+          </Reveal>
         </div>
       </section>
 

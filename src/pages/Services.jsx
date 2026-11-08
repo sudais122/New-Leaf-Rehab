@@ -40,6 +40,7 @@ export default function Services() {
         title="Not sure which service you need?"
         text="Call us for a confidential first conversation. We will help you understand the right next step."
         buttonLabel="Book an Appointment"
+        to="/appointment"
       />
     </>
   );
