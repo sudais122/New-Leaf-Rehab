@@ -522,3 +522,22 @@
     padding: 25px 17px;
   }
 }
+/* Email submission error */
+.booking-error {
+  width: 100%;
+  padding: 13px 16px;
+  margin-top: 18px;
+  border: 1px solid #efb7b7;
+  border-radius: 8px;
+  background: #fff1f1;
+  color: #a52b2b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Disabled submit button */
+.booking-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}

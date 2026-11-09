@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import '../styles/AppointmentBooking.css';
 
 // Edit these options whenever you want to add more services.
@@ -81,25 +82,31 @@ const getToday = () => {
   return `${year}-${month}-${day}`;
 };
 
+const initialBooking = {
+  service: '',
+  date: '',
+  time: '',
+  firstName: '',
+  lastName: '',
+  email: '',
+  whatsapp: '',
+};
+
 export default function AppointmentBooking({ onSubmit }) {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
 
-  const [booking, setBooking] = useState({
-    service: '',
-    date: '',
-    time: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    whatsapp: '',
-  });
+  const [booking, setBooking] = useState(initialBooking);
 
   const updateBooking = (field, value) => {
     setBooking((prev) => ({
       ...prev,
       [field]: value,
     }));
+
+    if (error) setError('');
   };
 
   const nextStep = () => {
@@ -113,11 +120,25 @@ export default function AppointmentBooking({ onSubmit }) {
       return;
     }
 
+    setError('');
     setStep((prev) => prev + 1);
   };
 
-  const handleSubmit = (e) => {
+  const formatDate = (date) => {
+    if (!date) return '';
+
+    return new Date(`${date}T12:00:00`).toLocaleDateString('en-US', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    });
+  };
+
+  // Send appointment request through EmailJS.
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (sending) return;
 
     if (
       !booking.firstName.trim() ||
@@ -125,68 +146,118 @@ export default function AppointmentBooking({ onSubmit }) {
       !booking.email.trim() ||
       !booking.whatsapp.trim()
     ) {
+      setError('Please complete all required fields.');
       return;
     }
 
     if (!e.currentTarget.reportValidity()) return;
 
-    if (onSubmit) {
-      onSubmit(booking);
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env
+      .VITE_EMAILJS_APPOINTMENT_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setError(
+        'Email service is not configured. Please contact the administrator.'
+      );
+      return;
     }
 
-    setSubmitted(true);
-  };
+    setSending(true);
+    setError('');
 
-  const formatDate = (date) => {
-    if (!date) return '';
+    const selectedTime =
+      timeSlots.find((slot) => slot.value === booking.time)?.label ||
+      booking.time;
 
-    return new Date(`${date}T12:00:00`).toLocaleDateString(
-      'en-US',
-      {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
+    const templateParams = {
+      service: booking.service,
+      appointment_date: formatDate(booking.date),
+      appointment_time: selectedTime,
+      first_name: booking.firstName.trim(),
+      last_name: booking.lastName.trim(),
+      full_name: `${booking.firstName.trim()} ${booking.lastName.trim()}`,
+      email: booking.email.trim(),
+      whatsapp: booking.whatsapp.trim(),
+    };
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        { publicKey }
+      );
+
+      if (onSubmit) {
+        onSubmit(booking);
       }
-    );
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Appointment email error:', err);
+
+      setError(
+        'Your appointment request could not be sent. Please check your connection and try again.'
+      );
+    } finally {
+      setSending(false);
+    }
   };
 
+  // Success screen after the email has been accepted by EmailJS.
   if (submitted) {
     return (
       <section className="booking-section">
         <div className="booking-container booking-success">
           <div className="success-icon">✓</div>
+
           <h2>Appointment Request Submitted!</h2>
+
           <p>
             Thank you for choosing New Leaf Rehab Center.
             Your appointment request has been received.
+            Our team will contact you to confirm availability.
           </p>
 
           <div className="booking-summary">
             <h3>Booking Summary</h3>
-            <p><strong>Service:</strong> {booking.service}</p>
-            <p><strong>Date:</strong> {formatDate(booking.date)}</p>
-            <p><strong>Time:</strong> {
-              timeSlots.find((slot) => slot.value === booking.time)?.label
-            }</p>
-            <p><strong>Name:</strong> {booking.firstName} {booking.lastName}</p>
-            <p><strong>Email:</strong> {booking.email}</p>
-            <p><strong>WhatsApp:</strong> {booking.whatsapp}</p>
+
+            <p>
+              <strong>Service:</strong> {booking.service}
+            </p>
+
+            <p>
+              <strong>Date:</strong> {formatDate(booking.date)}
+            </p>
+
+            <p>
+              <strong>Time:</strong>{' '}
+              {timeSlots.find((slot) => slot.value === booking.time)?.label}
+            </p>
+
+            <p>
+              <strong>Name:</strong> {booking.firstName} {booking.lastName}
+            </p>
+
+            <p>
+              <strong>Email:</strong> {booking.email}
+            </p>
+
+            <p>
+              <strong>WhatsApp:</strong> {booking.whatsapp}
+            </p>
           </div>
 
           <button
+            type="button"
             className="booking-btn primary-btn"
             onClick={() => {
-              setBooking({
-                service: '',
-                date: '',
-                time: '',
-                firstName: '',
-                lastName: '',
-                email: '',
-                whatsapp: '',
-              });
+              setBooking(initialBooking);
               setStep(1);
               setSubmitted(false);
+              setError('');
             }}
           >
             Book Another Appointment
@@ -240,17 +311,16 @@ export default function AppointmentBooking({ onSubmit }) {
           })}
         </div>
 
-        <form
-          className="booking-card"
-          onSubmit={handleSubmit}
-        >
+        <form className="booking-card" onSubmit={handleSubmit}>
 
-          {/* STEP 1 */}
+          {/* STEP 1: SERVICE SELECTION */}
           {step === 1 && (
             <div className="booking-step">
               <div className="step-heading">
                 <span className="step-label">STEP 01</span>
+
                 <h2>Select Your Service</h2>
+
                 <p>
                   Please choose the department or service
                   you would like to book.
@@ -307,12 +377,14 @@ export default function AppointmentBooking({ onSubmit }) {
             </div>
           )}
 
-          {/* STEP 2 */}
+          {/* STEP 2: DATE AND TIME */}
           {step === 2 && (
             <div className="booking-step">
               <div className="step-heading">
                 <span className="step-label">STEP 02</span>
+
                 <h2>Choose Date & Time</h2>
+
                 <p>
                   Select your preferred appointment date
                   and available time slot.
@@ -377,7 +449,10 @@ export default function AppointmentBooking({ onSubmit }) {
                 <button
                   type="button"
                   className="booking-btn secondary-btn"
-                  onClick={() => setStep(1)}
+                  onClick={() => {
+                    setError('');
+                    setStep(1);
+                  }}
                 >
                   ← Back
                 </button>
@@ -394,12 +469,14 @@ export default function AppointmentBooking({ onSubmit }) {
             </div>
           )}
 
-          {/* STEP 3 */}
+          {/* STEP 3: CLIENT INFORMATION */}
           {step === 3 && (
             <div className="booking-step">
               <div className="step-heading">
                 <span className="step-label">STEP 03</span>
+
                 <h2>Your Information</h2>
+
                 <p>
                   Please provide your contact information
                   to complete your appointment request.
@@ -409,7 +486,10 @@ export default function AppointmentBooking({ onSubmit }) {
               <div className="form-grid">
 
                 <div className="form-field">
-                  <label htmlFor="firstName">First Name *</label>
+                  <label htmlFor="firstName">
+                    First Name *
+                  </label>
+
                   <input
                     id="firstName"
                     type="text"
@@ -424,7 +504,10 @@ export default function AppointmentBooking({ onSubmit }) {
                 </div>
 
                 <div className="form-field">
-                  <label htmlFor="lastName">Last Name *</label>
+                  <label htmlFor="lastName">
+                    Last Name *
+                  </label>
+
                   <input
                     id="lastName"
                     type="text"
@@ -439,7 +522,10 @@ export default function AppointmentBooking({ onSubmit }) {
                 </div>
 
                 <div className="form-field full-width">
-                  <label htmlFor="email">Email Address *</label>
+                  <label htmlFor="email">
+                    Email Address *
+                  </label>
+
                   <input
                     id="email"
                     type="email"
@@ -454,7 +540,10 @@ export default function AppointmentBooking({ onSubmit }) {
                 </div>
 
                 <div className="form-field full-width">
-                  <label htmlFor="whatsapp">WhatsApp Number *</label>
+                  <label htmlFor="whatsapp">
+                    WhatsApp Number *
+                  </label>
+
                   <input
                     id="whatsapp"
                     type="tel"
@@ -466,6 +555,7 @@ export default function AppointmentBooking({ onSubmit }) {
                     autoComplete="tel"
                     required
                   />
+
                   <small>
                     Please enter a WhatsApp number where we can contact you.
                   </small>
@@ -497,11 +587,22 @@ export default function AppointmentBooking({ onSubmit }) {
                 </div>
               </div>
 
+              {/* Email Error */}
+              {error && (
+                <div className="booking-error" role="alert">
+                  {error}
+                </div>
+              )}
+
               <div className="booking-actions">
                 <button
                   type="button"
                   className="booking-btn secondary-btn"
-                  onClick={() => setStep(2)}
+                  onClick={() => {
+                    setError('');
+                    setStep(2);
+                  }}
+                  disabled={sending}
                 >
                   ← Back
                 </button>
@@ -509,8 +610,11 @@ export default function AppointmentBooking({ onSubmit }) {
                 <button
                   type="submit"
                   className="booking-btn primary-btn"
+                  disabled={sending}
                 >
-                  Confirm Appointment →
+                  {sending
+                    ? 'Sending Request...'
+                    : 'Confirm Appointment →'}
                 </button>
               </div>
 
