@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { PHONE, PHONE_TEL, EMAIL } from "../data/site";
+import { EMAIL } from "../data/site";
 import { logo } from "../assets/images";
 
 export default function Footer() {
@@ -53,9 +53,6 @@ export default function Footer() {
         {/* Contact Information */}
         <div>
           <h4>Contact Us</h4>
-
-          <a href={`tel:${PHONE_TEL}`}>{PHONE}</a>
-
           <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
 
           <span className="ln">

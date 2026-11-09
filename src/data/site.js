@@ -1,4 +1,4 @@
-export const PHONE = '0345-1939246';
+export const PHONE = '0308-9441043';
 export const PHONE_TEL = PHONE.replace(/-/g, '');
 export const PHONE_INTL = '923451939246';
 export const EMAIL = 'newleafrehabcenter@gmail.com';

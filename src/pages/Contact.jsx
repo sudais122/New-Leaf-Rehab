@@ -13,10 +13,7 @@ const contactDetails = [
     description: 'Speak directly with our team.',
     icon: 'phone',
     links: [
-      { label: '0300-0945066', href: 'tel:03000945066' },
-      { label: '0345-1939246', href: 'tel:03451939246' },
       { label: '0308-9441043', href: 'tel:03089441043' },
-      { label: '0311-6198469', href: 'tel:03116198469' }
     ]
   },
   {

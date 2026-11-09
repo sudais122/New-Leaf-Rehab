@@ -73,7 +73,7 @@ export default function Internship() {
             {/* INTERNSHIP IMAGE */}
             <div className="internship-image">
               <img
-                src="src/assets/images/intern-15.jpeg"
+                src="src/assets/images/intern11.jpeg"
                 alt="Clinical psychology students participating in supervised internship learning"
               />
             </div>
