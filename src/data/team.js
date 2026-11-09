@@ -23,13 +23,6 @@ export const leaders = [
   },
 ];
 
-/*
-  name / photo      -> card + modal
-  role              -> short role shown on the card
-  cred              -> credential line shown on the card
-  modalRole         -> longer role line shown in the profile modal (was data-role)
-  bio               -> text shown in the profile modal (was data-bio)
-*/
 export const members = [
   {
     name: 'Dr. Zahid Hanif', photo: drZahidHanif,
