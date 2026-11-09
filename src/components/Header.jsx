@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Button from "./Button";
@@ -9,15 +10,19 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // 'Home' is '/', everything else is matched without a trailing slash
+  // Normalize the current route
   const current = pathname.replace(/\/+$/, "") || "/";
-  const active = (paths) => (paths.includes(current) ? "active" : undefined);
+  const active = (paths) =>
+    paths.includes(current) ? "active" : undefined;
+
   const closeMenu = () => setMenuOpen(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -25,18 +30,26 @@ export default function Header() {
     const onKey = (e) => {
       if (e.key === "Escape") setMenuOpen(false);
     };
+
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, []);
 
   return (
     <>
+      {/* Top Bar */}
       <div className="topbar">
         <div className="container topbar-inner">
           <div className="topbar-left">
-            <a href={"tel:" + PHONE_TEL}>{"\u260E " + PHONE}</a>
-            <a href={"mailto:" + EMAIL}>{"\u2709 " + EMAIL}</a>
+            <a href={"tel:" + PHONE_TEL}>
+              {"\u260E " + PHONE}
+            </a>
+
+            <a href={"mailto:" + EMAIL}>
+              {"\u2709 " + EMAIL}
+            </a>
           </div>
+
           <div className="topbar-right social-links">
             {/* Facebook */}
             <a
@@ -91,8 +104,14 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <header className={"header" + (scrolled ? " scrolled" : "")} id="header">
+
+      {/* Main Header */}
+      <header
+        className={"header" + (scrolled ? " scrolled" : "")}
+        id="header"
+      >
         <div className="container header-inner">
+          {/* Logo */}
           <Link
             to="/"
             className="brand"
@@ -105,34 +124,55 @@ export default function Header() {
               alt="New Leaf Rehab Center"
             />
           </Link>
+
+          {/* Navigation */}
           <nav
             className={"nav" + (menuOpen ? " open" : "")}
             id="nav"
             aria-label="Main navigation"
           >
-            <Link to="/" className={active(["/"])} onClick={closeMenu}>
+            <Link
+              to="/"
+              className={active(["/"])}
+              onClick={closeMenu}
+            >
               Home
             </Link>
+
+            {/* About Us Dropdown */}
             <div className="dd">
               <Link
                 to="/about"
-                className={active(["/about", "/team", "/gallery"])}
+                className={active([
+                  "/about",
+                  "/team",
+                  "/gallery",
+                  "/certifications",
+                ])}
                 onClick={closeMenu}
               >
                 About Us <span className="caret">&#9660;</span>
               </Link>
+
               <div className="dd-menu">
                 <Link to="/about" onClick={closeMenu}>
                   Who We Are
                 </Link>
+
                 <Link to="/team" onClick={closeMenu}>
                   Our Team
                 </Link>
+
                 <Link to="/gallery" onClick={closeMenu}>
                   Gallery
                 </Link>
+
+                <Link to="/certifications" onClick={closeMenu}>
+                  Licences & Certifications
+                </Link>
               </div>
             </div>
+
             <Link
               to="/services"
               className={active(["/services"])}
@@ -140,6 +180,7 @@ export default function Header() {
             >
               Treatments
             </Link>
+
             <Link
               to="/departments"
               className={active(["/departments"])}
@@ -147,6 +188,7 @@ export default function Header() {
             >
               Our Departments
             </Link>
+
             <Link
               to="/internship"
               className={active(["/internship"])}
@@ -154,6 +196,7 @@ export default function Header() {
             >
               Internship
             </Link>
+
             <Link
               to="/contact"
               className={active(["/contact"])}
@@ -161,15 +204,23 @@ export default function Header() {
             >
               Contact Us
             </Link>
-            <Button to="/appointment" className="nav-cta" onClick={closeMenu}>
+
+            <Button
+              to="/appointment"
+              className="nav-cta"
+              onClick={closeMenu}
+            >
               Book an Appointment
             </Button>
           </nav>
+
+          {/* Mobile Menu Toggle */}
           <button
             className={"menu-toggle" + (menuOpen ? " open" : "")}
             id="menuToggle"
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
+            aria-controls="nav"
             onClick={() => setMenuOpen((open) => !open)}
           >
             <span></span>

@@ -5,6 +5,7 @@ import Appointment from "./pages/Appointment";
 import About from "./pages/About";
 import Team from "./pages/Team";
 import Gallery from "./pages/Gallery";
+import Certifications from "./pages/Certifications";
 import Services from "./pages/Services";
 import Departments from "./pages/Departments";
 import Internship from "./pages/Internship";
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/team" element={<Team />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/certifications" element={<Certifications />} />
         <Route path="/services" element={<Services />} />
         <Route path="/departments" element={<Departments />} />
         <Route path="/internship" element={<Internship />} />

@@ -252,3 +252,162 @@
     width: 15px;
     height: 15px;
 }
+
+/* ================================
+   RESPONSIVE NAVBAR
+================================ */
+
+/* Laptop and smaller desktop screens */
+@media (max-width: 1200px) {
+  .header-inner {
+    height: 75px;
+  }
+
+  .brand-logo {
+    height: 50px;
+  }
+
+  .nav {
+    gap: 0;
+  }
+
+  .nav > a,
+  .nav > .dd > a {
+    padding: 10px 9px;
+    font-size: 0.85rem;
+  }
+
+  .nav-cta {
+    margin-left: 5px;
+    padding: 10px 13px !important;
+    font-size: 0.82rem !important;
+  }
+}
+
+/* Tablet and mobile navigation */
+@media (max-width: 900px) {
+  .header-inner {
+    height: 72px;
+  }
+
+  .brand-logo {
+    height: 48px;
+  }
+
+  .menu-toggle {
+    display: flex;
+    z-index: 102;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 15px 5% 22px;
+    background: #fff;
+    border-top: 1px solid var(--line);
+    box-shadow: 0 12px 24px rgba(23, 64, 58, 0.12);
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .nav > a,
+  .nav > .dd > a {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+
+  .dd {
+    width: 100%;
+  }
+
+  .dd-menu {
+    position: static;
+    display: none;
+    min-width: 100%;
+    padding: 5px 10px;
+    margin: 3px 0 8px;
+    border-top: 0;
+    border-left: 3px solid var(--lime);
+    border-radius: 0;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: var(--tint);
+  }
+
+  .dd:hover .dd-menu,
+  .dd:focus-within .dd-menu {
+    display: block;
+  }
+
+  .dd-menu a {
+    padding: 11px 14px;
+  }
+
+  .nav-cta {
+    width: 100%;
+    margin: 8px 0 0;
+    text-align: center;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 600px) {
+  .topbar-inner {
+    justify-content: center;
+    padding: 8px 0;
+    gap: 8px;
+  }
+
+  .topbar-left {
+    justify-content: center;
+    gap: 8px 15px;
+    font-size: 0.75rem;
+  }
+
+  .topbar-right {
+    justify-content: center;
+  }
+
+  .header-inner {
+    height: 65px;
+  }
+
+  .brand-logo {
+    height: 43px;
+  }
+
+  .nav {
+    padding: 12px 5% 20px;
+  }
+}
+
+/* Extra-small mobile screens */
+@media (max-width: 380px) {
+  .topbar-left {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .brand-logo {
+    height: 39px;
+  }
+
+  .menu-toggle {
+    width: 38px;
+    height: 38px;
+  }
+}

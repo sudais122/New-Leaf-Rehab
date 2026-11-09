@@ -1,0 +1,116 @@
+.certifications-page {
+  min-height: 80vh;
+  padding: 90px 7%;
+  background: #f7faf8;
+}
+
+.certifications-header {
+  max-width: 750px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.certifications-header span {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #26966b;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.certifications-header h1 {
+  margin: 0 0 18px;
+  color: #173d32;
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 700;
+}
+
+.certifications-header p {
+  margin: 0;
+  color: #68766f;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.certificate-card {
+  overflow: hidden;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid #e5eee9;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(25, 65, 49, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certificate-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(25, 65, 49, 0.12);
+}
+
+.certificate-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+  overflow: hidden;
+  background: #f3f6f4;
+  border-radius: 8px;
+}
+
+.certificate-image img {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.certificate-card:hover .certificate-image img {
+  transform: scale(1.03);
+}
+
+.certificate-card h3 {
+  margin: 18px 0 5px;
+  color: #173d32;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .certificates-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .certifications-page {
+    padding: 65px 5%;
+  }
+
+  .certifications-header {
+    margin-bottom: 35px;
+  }
+
+  .certificates-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .certificate-image {
+    min-height: 220px;
+  }
+
+  .certificate-image img {
+    height: 240px;
+  }
+}
