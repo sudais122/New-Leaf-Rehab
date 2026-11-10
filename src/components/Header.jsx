@@ -1,22 +1,34 @@
-
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Button from "./Button";
 import { logo } from "../assets/images";
 import { PHONE, PHONE_TEL, EMAIL } from "../data/site";
 
+// Must match the hamburger breakpoint in the CSS (max-width: 1024px)
+const MOBILE_BREAKPOINT = 1024;
+
 export default function Header() {
   const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [ddOpen, setDdOpen] = useState(false);
 
   // Normalize the current route
   const current = pathname.replace(/\/+$/, "") || "/";
-  const active = (paths) =>
-    paths.includes(current) ? "active" : undefined;
+  const active = (paths) => (paths.includes(current) ? "active" : undefined);
 
-  const closeMenu = () => setMenuOpen(false);
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setDdOpen(false);
+  };
 
+  // Close everything whenever the route changes
+  useEffect(() => {
+    setMenuOpen(false);
+    setDdOpen(false);
+  }, [pathname]);
+
+  // Shadow on scroll
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
 
@@ -26,14 +38,39 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Escape closes the menu
   useEffect(() => {
     const onKey = (e) => {
-      if (e.key === "Escape") setMenuOpen(false);
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        setDdOpen(false);
+      }
     };
 
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, []);
+
+  // Reset the mobile menu when resizing up to desktop width
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth > MOBILE_BREAKPOINT) {
+        setMenuOpen(false);
+        setDdOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  // Lock page scroll while the mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   return (
     <>
@@ -41,13 +78,9 @@ export default function Header() {
       <div className="topbar">
         <div className="container topbar-inner">
           <div className="topbar-left">
-            <a href={"tel:" + PHONE_TEL}>
-              {"\u260E " + PHONE}
-            </a>
+            <a href={"tel:" + PHONE_TEL}>{"\u260E " + PHONE}</a>
 
-            <a href={"mailto:" + EMAIL}>
-              {"\u2709 " + EMAIL}
-            </a>
+            <a href={"mailto:" + EMAIL}>{"\u2709 " + EMAIL}</a>
           </div>
 
           <div className="topbar-right social-links">
@@ -90,7 +123,7 @@ export default function Header() {
               </svg>
             </a>
 
-            {/* TikTok */}
+            {/* TikTok — replace YOUR_TIKTOK_PROFILE_URL with the real profile link */}
             <a
               href="YOUR_TIKTOK_PROFILE_URL"
               target="_blank"
@@ -106,10 +139,7 @@ export default function Header() {
       </div>
 
       {/* Main Header */}
-      <header
-        className={"header" + (scrolled ? " scrolled" : "")}
-        id="header"
-      >
+      <header className={"header" + (scrolled ? " scrolled" : "")} id="header">
         <div className="container header-inner">
           {/* Logo */}
           <Link
@@ -118,11 +148,7 @@ export default function Header() {
             aria-label="New Leaf Rehab Center home"
             onClick={closeMenu}
           >
-            <img
-              className="brand-logo"
-              src={logo}
-              alt="New Leaf Rehab Center"
-            />
+            <img className="brand-logo" src={logo} alt="New Leaf Rehab Center" />
           </Link>
 
           {/* Navigation */}
@@ -131,16 +157,12 @@ export default function Header() {
             id="nav"
             aria-label="Main navigation"
           >
-            <Link
-              to="/"
-              className={active(["/"])}
-              onClick={closeMenu}
-            >
+            <Link to="/" className={active(["/"])} onClick={closeMenu}>
               Home
             </Link>
 
             {/* About Us Dropdown */}
-            <div className="dd">
+            <div className={"dd" + (ddOpen ? " open" : "")}>
               <Link
                 to="/about"
                 className={active([
@@ -153,6 +175,17 @@ export default function Header() {
               >
                 About Us <span className="caret">&#9660;</span>
               </Link>
+
+              {/* Mobile-only submenu toggle (hidden on desktop via CSS) */}
+              <button
+                type="button"
+                className="dd-toggle"
+                aria-label="Toggle About Us submenu"
+                aria-expanded={ddOpen}
+                onClick={() => setDdOpen((open) => !open)}
+              >
+                <span className="caret">&#9660;</span>
+              </button>
 
               <div className="dd-menu">
                 <Link to="/about" onClick={closeMenu}>
@@ -168,7 +201,7 @@ export default function Header() {
                 </Link>
 
                 <Link to="/certifications" onClick={closeMenu}>
-                  Licences & Certifications
+                  Licences &amp; Certifications
                 </Link>
               </div>
             </div>
@@ -205,11 +238,7 @@ export default function Header() {
               Contact Us
             </Link>
 
-            <Button
-              to="/appointment"
-              className="nav-cta"
-              onClick={closeMenu}
-            >
+            <Button to="/appointment" className="nav-cta" onClick={closeMenu}>
               Book an Appointment
             </Button>
           </nav>
