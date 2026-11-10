@@ -336,23 +336,6 @@ export default function Home() {
           />
 
           <LocationMap />
-
-          <div className="addr-bar">
-            <span>
-              <strong>Address:</strong> Street No. 6, Tarlai Kalan,
-              Islamabad, Pakistan
-            </span>
-
-            <span>
-              <strong>Phone:</strong>{' '}
-              <a href={`tel:${PHONE_TEL}`}>{PHONE}</a>
-            </span>
-
-            <span>
-              <strong>Email:</strong>{' '}
-              <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-            </span>
-          </div>
         </div>
       </section>
     </>
