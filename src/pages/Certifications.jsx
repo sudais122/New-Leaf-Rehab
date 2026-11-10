@@ -1,16 +1,22 @@
-import React from 'react';
-import '../styles/Certifications.css'
+
+import React from "react";
+import "../styles/Certifications.css";
+
+import {
+  ihra,
+  incorporationLetter,
+} from "../assets/images";
 
 export default function Certifications() {
   const certificates = [
     {
-      title: 'Registration Certificate',
-      image: 'src/assets/images/Incorporation-Letter.jpg',
+      title: "Registration Certificate",
+      image: incorporationLetter,
     },
     {
-      title: 'Licence Certificate',
-      image: 'src/assets/images/IHRA.jpeg',
-    }
+      title: "Licence Certificate",
+      image: ihra,
+    },
   ];
 
   return (
@@ -31,6 +37,7 @@ export default function Certifications() {
               <img
                 src={certificate.image}
                 alt={certificate.title}
+                loading="lazy"
               />
             </div>
 

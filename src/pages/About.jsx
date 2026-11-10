@@ -1,9 +1,10 @@
+
 import Reveal from "../components/Reveal";
 import SectionHead from "../components/SectionHead";
 import PageHero from "../components/PageHero";
 import TickList from "../components/TickList";
 import usePageMeta from "../hooks/usePageMeta";
-import { office } from "../assets/images";
+import { office, misbahUllah } from "../assets/images";
 
 const values = [
   {
@@ -75,7 +76,7 @@ const ethics = [
 export default function About() {
   usePageMeta(
     "About Us | New Leaf Rehab Center Islamabad",
-    "History, vision, mission, values, ethics and registration details of New Leaf Rehab Center Islamabad.",
+    "History, vision, mission, values, ethics and registration details of New Leaf Rehab Center Islamabad."
   );
 
   return (
@@ -85,18 +86,21 @@ export default function About() {
         crumbs={[{ label: "Home", to: "/" }, { label: "About Us" }]}
       />
 
+      {/* OUR STORY */}
       <section className="section">
         <div className="container split">
           <Reveal>
             <span className="eyebrow">Our Story</span>
             <h2>History &amp; development</h2>
             <div className="rule"></div>
+
             <p>
               New Leaf Rehab Center was established on{" "}
               <strong>17 July 2023</strong>. The project was initiated by Misbah
               Ullah and Dr. Shahzaib with the aim of contributing to addiction
               rehabilitation and mental healthcare in Islamabad.
             </p>
+
             <p>
               Since its establishment, the centre's focus has included
               rehabilitation services, psychological support and opportunities
@@ -105,14 +109,16 @@ export default function About() {
               with qualified medical and psychiatric professionals where
               required.
             </p>
+
             <p>
               The institution also values professional education: through
-              supervised clinical learning, it helps psychology students connect
-              academic knowledge with responsible practice.
+              supervised clinical learning, it helps psychology students
+              connect academic knowledge with responsible practice.
             </p>
           </Reveal>
+
           <Reveal className="pic">
-            <img src={office} alt="Management office" />
+            <img src={office} alt="Management office" loading="lazy" />
           </Reveal>
         </div>
       </section>
@@ -134,19 +140,23 @@ export default function About() {
             <Reveal className="ceo-profile-card">
               <div className="ceo-avatar">
                 <img
-                  src="src/assets/images/misbah-ullah.jpg"
+                  src={misbahUllah}
                   alt="Misbah Ullah - Chief Executive Officer"
+                  loading="lazy"
                 />
               </div>
+
               <div className="ceo-profile-caption">
                 <h3>Misbah Ullah</h3>
                 <span>Chief Executive Officer (CEO)</span>
                 <small>New Leaf Rehab Centre Islamabad</small>
               </div>
+
               <div className="ceo-education">
                 <strong>MS Clinical Psychology</strong>
                 <span>International Islamic University Islamabad</span>
               </div>
+
               <div className="ceo-experience">
                 <strong>Approximately 4 Years</strong>
                 <span>Professional Experience in Psychology</span>
@@ -171,8 +181,8 @@ export default function About() {
                 Islamic University Islamabad (IIUI) and brings approximately
                 four years of experience in psychology. His professional
                 interests include clinical psychology, psychopathology,
-                psychological assessment, counselling, addiction psychology and
-                rehabilitation.
+                psychological assessment, counselling, addiction psychology
+                and rehabilitation.
               </p>
 
               <p>
@@ -210,47 +220,35 @@ export default function About() {
 
             <Reveal className="ceo-info-card">
               <span className="ceo-info-number">02</span>
-              <h3>Leadership & Institutional Development</h3>
+              <h3>Leadership &amp; Institutional Development</h3>
               <p>
-                Under his leadership, New Leaf Rehab Centre Islamabad continues
-                to focus on strengthening mental health and addiction
-                rehabilitation services.
+                Under his leadership, New Leaf Rehab Centre Islamabad
+                continues to focus on strengthening mental health and
+                addiction rehabilitation services.
               </p>
               <ul>
-                <li>
-                  Promoting ethical and patient-centred rehabilitation
-                  practices.
-                </li>
-                <li>
-                  Supporting collaboration among healthcare professionals.
-                </li>
-                <li>
-                  Developing clinical internship and training opportunities.
-                </li>
-                <li>
-                  Organizing mental health awareness programmes and workshops.
-                </li>
-                <li>
-                  Building relationships with academic and healthcare
-                  institutions.
-                </li>
+                <li>Promoting ethical and patient-centred rehabilitation practices.</li>
+                <li>Supporting collaboration among healthcare professionals.</li>
+                <li>Developing clinical internship and training opportunities.</li>
+                <li>Organizing mental health awareness programmes and workshops.</li>
+                <li>Building relationships with academic and healthcare institutions.</li>
                 <li>Encouraging evidence-informed treatment approaches.</li>
               </ul>
             </Reveal>
 
             <Reveal className="ceo-info-card">
               <span className="ceo-info-number">03</span>
-              <h3>Vision & Philosophy</h3>
+              <h3>Vision &amp; Philosophy</h3>
               <p>
-                Misbah Ullah believes that recovery is more than the absence of
-                illness or substance use. It is a comprehensive process of
+                Misbah Ullah believes that recovery is more than the absence
+                of illness or substance use. It is a comprehensive process of
                 restoring psychological well-being, personal dignity, family
                 relationships and social functioning.
               </p>
               <p>
                 His vision is to contribute to a society where mental health
-                receives the attention it deserves, addiction is approached as a
-                treatable health condition rather than a social stigma, and
+                receives the attention it deserves, addiction is approached as
+                a treatable health condition rather than a social stigma, and
                 every individual has access to appropriate professional care.
               </p>
               <div className="ceo-principles">
@@ -267,14 +265,15 @@ export default function About() {
               <h3>New Leaf Rehab Centre Islamabad (NLRC)</h3>
               <p>
                 An organization registered with the Islamabad Healthcare
-                Regulatory Authority (IHRA) and incorporated under the Companies
-                Act, 2017, Pakistan.
+                Regulatory Authority (IHRA) and incorporated under the
+                Companies Act, 2017, Pakistan.
               </p>
             </div>
+
             <div className="ceo-registration-details">
               <div>
                 <small>IHRA Registration</small>
-                <strong>IHRA/Reg & Lic/2024/IHRA-01624</strong>
+                <strong>IHRA/Reg &amp; Lic/2024/IHRA-01624</strong>
               </div>
               <div>
                 <small>Company Incorporation No.</small>
@@ -285,33 +284,37 @@ export default function About() {
         </div>
       </section>
 
+      {/* VISION AND MISSION */}
       <section className="section section-tint">
         <div className="container">
           <SectionHead eyebrow="Vision & Mission" title="What we stand for" />
+
           <div className="vm">
             <Reveal className="vm-card">
               <h3>Our Vision</h3>
               <p>
                 To build a healthy and caring society where people facing
                 addiction and mental health problems can get the help and
-                support they need, recover with dignity, and live a better life
-                with hope and confidence.
+                support they need, recover with dignity, and live a better
+                life with hope and confidence.
               </p>
             </Reveal>
+
             <Reveal className="vm-card">
               <h3>Our Mission</h3>
               <p>
-                To provide quality rehabilitation and mental health care in a
-                safe, supportive and respectful environment, helping individuals
-                overcome addiction and mental health challenges through proper
-                treatment, counselling, family support and guidance, so they can
-                return to a healthy and meaningful life.
+                To provide quality rehabilitation and mental health care in
+                a safe, supportive and respectful environment, helping
+                individuals overcome addiction and mental health challenges
+                through proper treatment, counselling, family support and
+                guidance, so they can return to a healthy and meaningful life.
               </p>
             </Reveal>
           </div>
         </div>
       </section>
 
+      {/* CORE VALUES */}
       <section className="section section-dark">
         <div className="container">
           <SectionHead
@@ -319,6 +322,7 @@ export default function About() {
             title="What guides every part of our care"
             light
           />
+
           <div className="values-grid">
             {values.map((v, i) => (
               <Reveal as="article" className="value" key={v.title}>
@@ -333,6 +337,7 @@ export default function About() {
         </div>
       </section>
 
+      {/* RECOVERY PATHWAY */}
       <section className="section">
         <div className="container">
           <SectionHead
@@ -340,10 +345,11 @@ export default function About() {
             title="Seven steps, shaped around you"
           >
             <p>
-              Treatment is individualized after assessment and reviewed as needs
-              change.
+              Treatment is individualized after assessment and reviewed as
+              needs change.
             </p>
           </SectionHead>
+
           <ol className="steps">
             {steps.map((s, i) => (
               <Reveal as="li" key={s.title}>
@@ -358,6 +364,7 @@ export default function About() {
         </div>
       </section>
 
+      {/* ETHICS AND REGISTRATION */}
       <section className="section section-tint">
         <div className="container split">
           <Reveal>
@@ -366,19 +373,25 @@ export default function About() {
             <div className="rule"></div>
             <TickList items={ethics} />
           </Reveal>
+
           <Reveal className="reg">
             <h3>Registration &amp; Licensing</h3>
             <dl>
               <dt>Institution</dt>
               <dd>New Leaf Rehab Center Islamabad</dd>
+
               <dt>IHRA Registration</dt>
               <dd>IHRA/Reg &amp; Lic /2024/IHRA-01624</dd>
+
               <dt>Authority</dt>
               <dd>Islamabad Healthcare Regulatory Authority</dd>
+
               <dt>Company No. (SECP)</dt>
               <dd>0254665 · Companies Act, 2017 (XIX of 2017)</dd>
+
               <dt>Established</dt>
               <dd>17 July 2023</dd>
+
               <dt>Address</dt>
               <dd>Street No. 6, Tarlai Kalan, Islamabad</dd>
             </dl>

@@ -1,41 +1,42 @@
 
-import Reveal from '../components/Reveal';
-import Button from '../components/Button';
-import PageHero from '../components/PageHero';
-import TickList from '../components/TickList';
-import usePageMeta from '../hooks/usePageMeta';
+import Reveal from "../components/Reveal";
+import Button from "../components/Button";
+import PageHero from "../components/PageHero";
+import TickList from "../components/TickList";
+import usePageMeta from "../hooks/usePageMeta";
+import { intern11 } from "../assets/images";
 
 const objectives = [
-  'Understand substance use disorders and recovery-oriented care',
-  'Strengthen communication, rapport-building and reflective practice',
-  'Observe clinical assessment and mental status examination processes',
-  'Learn case history taking, case formulation and clinical documentation',
-  'Become familiar with counselling approaches and CBT-informed techniques',
-  'Learn about group psychoeducation, family support and relapse prevention',
-  'Understand confidentiality, informed consent, boundaries and ethics',
+  "Understand substance use disorders and recovery-oriented care",
+  "Strengthen communication, rapport-building and reflective practice",
+  "Observe clinical assessment and mental status examination processes",
+  "Learn case history taking, case formulation and clinical documentation",
+  "Become familiar with counselling approaches and CBT-informed techniques",
+  "Learn about group psychoeducation, family support and relapse prevention",
+  "Understand confidentiality, informed consent, boundaries and ethics",
 ];
 
 const activities = [
-  'Orientation to the centre, policies and client confidentiality',
-  'Supervised observation of approved clinical or psychoeducational activities',
-  'Case discussions using de-identified information',
-  'Demonstrations of rapport building and basic interviewing skills',
-  'Reflective assignments, presentations and supervisor feedback',
+  "Orientation to the centre, policies and client confidentiality",
+  "Supervised observation of approved clinical or psychoeducational activities",
+  "Case discussions using de-identified information",
+  "Demonstrations of rapport building and basic interviewing skills",
+  "Reflective assignments, presentations and supervisor feedback",
 ];
 
 const collaboration = [
-  'Supervised internship and clinical placement arrangements',
-  'Guest lectures, workshops and mental health awareness sessions',
-  'Case-based learning using anonymized material',
-  'Research collaboration subject to ethics approval and permissions',
-  'Professional development and continuing education',
-  'Joint community outreach and addiction-awareness initiatives',
+  "Supervised internship and clinical placement arrangements",
+  "Guest lectures, workshops and mental health awareness sessions",
+  "Case-based learning using anonymized material",
+  "Research collaboration subject to ethics approval and permissions",
+  "Professional development and continuing education",
+  "Joint community outreach and addiction-awareness initiatives",
 ];
 
 export default function Internship() {
   usePageMeta(
-    'Clinical Psychology Internship | New Leaf Rehab Center Islamabad',
-    'Supervised clinical psychology internships and university collaboration at New Leaf Rehab Center Islamabad.'
+    "Clinical Psychology Internship | New Leaf Rehab Center Islamabad",
+    "Supervised clinical psychology internships and university collaboration at New Leaf Rehab Center Islamabad."
   );
 
   return (
@@ -43,8 +44,8 @@ export default function Internship() {
       <PageHero
         title="Clinical Psychology Internship"
         crumbs={[
-          { label: 'Home', to: '/' },
-          { label: 'Internship' },
+          { label: "Home", to: "/" },
+          { label: "Internship" },
         ]}
       />
 
@@ -53,7 +54,11 @@ export default function Internship() {
         <div className="container split">
           <Reveal>
             <span className="eyebrow">Clinical Learning</span>
-            <h2>Connecting classroom learning with responsible practice</h2>
+
+            <h2>
+              Connecting classroom learning with responsible practice
+            </h2>
+
             <div className="rule" />
 
             <p>
@@ -62,7 +67,7 @@ export default function Internship() {
               MS Psychology, MS Clinical Psychology and related disciplines.
             </p>
 
-            <h3 style={{ margin: '22px 0 8px' }}>
+            <h3 style={{ margin: "22px 0 8px" }}>
               Learning objectives
             </h3>
 
@@ -73,13 +78,15 @@ export default function Internship() {
             {/* INTERNSHIP IMAGE */}
             <div className="internship-image">
               <img
-                src="src/assets/images/intern11.jpeg"
+                src={intern11}
                 alt="Clinical psychology students participating in supervised internship learning"
+                loading="lazy"
               />
             </div>
 
             <div className="collab">
               <h3>Possible supervised activities</h3>
+
               <ul>
                 {activities.map((activity) => (
                   <li key={activity}>{activity}</li>
@@ -95,7 +102,11 @@ export default function Internship() {
         <div className="container split">
           <Reveal>
             <span className="eyebrow">Placement Safeguards</span>
-            <h2>Interns are learners, not substitute clinicians</h2>
+
+            <h2>
+              Interns are learners, not substitute clinicians
+            </h2>
+
             <div className="rule" />
 
             <p>
@@ -120,8 +131,13 @@ export default function Internship() {
             </Button>
           </Reveal>
 
-          <Reveal as="aside" className="collab" id="collaboration">
+          <Reveal
+            as="aside"
+            className="collab"
+            id="collaboration"
+          >
             <h3>University collaboration</h3>
+
             <ul>
               {collaboration.map((item) => (
                 <li key={item}>{item}</li>

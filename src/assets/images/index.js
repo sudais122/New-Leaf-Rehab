@@ -1,5 +1,7 @@
+
 // Central export of every image so components import them by name.
-// File names are unchanged from the original project.
+
+// Logo and facility images
 import logo from "./logo.jpg";
 import exterior from "./exterior.jpg";
 import reception from "./reception.jpg";
@@ -8,6 +10,12 @@ import office from "./office.jpg";
 import consultation from "./consultation.jpg";
 import room1 from "./room-1.jpg";
 import room2 from "./room-2.jpg";
+
+// Certificate images
+import ihra from "./IHRA.jpeg";
+import incorporationLetter from "./Incorporation-Letter.jpg";
+
+// Team images
 import misbahUllah from "./misbah-ullah.jpg";
 import drShahzeb from "./dr-shahzeb.jpg";
 import drZahidHanif from "./dr-zahid-hanif.jpg";
@@ -18,6 +26,9 @@ import nayabAlam from "./nayab-alam.jpg";
 import muhammadHassan from "./muhammad-hassan.jpg";
 import muhammadDawood from "./muhammad-dawood.jpg";
 import riyasatUllah from "./riyasat-ullah.jpg";
+import iqraBibi from "./iqra-bibi.jpeg";
+
+// Internship images
 import intern11 from "./intern11.jpeg";
 import intern12 from "./intern12.jpeg";
 import intern13 from "./intern13.jpeg";
@@ -33,6 +44,8 @@ export {
   consultation,
   room1,
   room2,
+  ihra,
+  incorporationLetter,
   misbahUllah,
   drShahzeb,
   drZahidHanif,
@@ -43,6 +56,7 @@ export {
   muhammadHassan,
   muhammadDawood,
   riyasatUllah,
+  iqraBibi,
   intern11,
   intern12,
   intern13,
