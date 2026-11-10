@@ -66,8 +66,11 @@ export default function Header() {
 
   // Lock page scroll while the mobile menu is open
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    const value = menuOpen ? "hidden" : "";
+    document.documentElement.style.overflow = value;
+    document.body.style.overflow = value;
     return () => {
+      document.documentElement.style.overflow = "";
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
