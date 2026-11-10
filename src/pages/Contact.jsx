@@ -14,6 +14,7 @@ const contactDetails = [
     icon: 'phone',
     links: [
       { label: '0308-9441043', href: 'tel:03089441043' },
+      { label: '0345-1939246', href: 'tel:03451939246' }
     ]
   },
   {
