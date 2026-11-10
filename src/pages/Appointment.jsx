@@ -6,49 +6,60 @@ import '../styles/AppointmentBooking.css';
 // Edit these options whenever you want to add more services.
 const serviceOptions = [
   {
-    category: 'Admission',
+    category: "Admission",
     options: [
-      'Admission for Suicide and Self-harm Prevention',
-      'Addiction Rehabilitation',
-      'Psychiatric Admission',
-      'Emergency Assessment',
+      "Admission for Suicide and Self-harm Prevention",
+      "Addiction Rehabilitation",
+      "Psychiatric Admission",
+      "Emergency Assessment",
     ],
   },
   {
-    category: 'Park Society',
+    category: "Park Society",
     options: [
-      'General Consultation',
-      'Psychological Assessment',
-      'Rehabilitation Consultation',
+      "General Consultation",
+      "Psychological Assessment",
+      "Rehabilitation Consultation",
     ],
   },
   {
-    category: 'Self-Care',
+    category: "Self-Care",
     options: [
-      'Individual Counseling',
-      'Psychological Services',
-      'Family Support',
-      'Stress Management',
+      "Individual Counseling",
+      "Psychological Services",
+      "Family Support",
+      "Stress Management",
     ],
   },
   {
-    category: 'Child Psychology',
+    category: "Child Psychology",
     options: [
-      'Child Psychological Assessment',
-      'Child Counseling',
-      'Behavioral Therapy',
+      "Child Psychological Assessment",
+      "Child Counseling",
+      "Behavioral Therapy",
+    ],
+  },
+    {
+    category: "Training & Internships",
+    options: [
+      "Clinical Psychology Internship",
+      "Psychology Internship",
+      "Clinical Training Program",
+      "Psychological Assessment Training",
+      "Counseling Skills Training",
+      "Addiction Rehabilitation Training",
+      "Workshops & Seminars",
     ],
   },
   {
-    category: 'Special Needs',
+    category: "Special Needs",
     options: [
-      'Developmental Assessment',
-      'Special Needs Consultation',
-      'Family Guidance',
+      "Developmental Assessment",
+      "Special Needs Consultation",
+      "Family Guidance",
     ],
   },
 ];
-
 // Generate 15-minute appointment intervals.
 const generateTimeSlots = () => {
   const slots = [];
